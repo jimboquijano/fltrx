@@ -8,7 +8,7 @@ export default {
     nav: [
       { text: 'Get Started', link: '/get-started' },
       { text: 'Usage', link: '/usage' },
-      { text: 'GitHub', link: 'https://github.com/jimzqui/fltrx' }
+      { text: 'GitHub', link: 'https://github.com/jimboquijano/fltrx' }
     ],
     sidebar: {
       '/': [

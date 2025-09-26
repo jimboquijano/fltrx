@@ -76,7 +76,7 @@ Access the features directly:
 import { useFilter, useHighlight } from '/src/fltrx.js'
 ```
 
-(Optional) For pagination style, use this [gist](https://gist.github.com/jimzqui/6f469fe2c3a42afb64d9ee403381e323)
+(Optional) For pagination style, use this [gist](https://gist.github.com/jimboquijano/936c4d063234db4f7699f0177d20e4f4)
 
 # Usage
 

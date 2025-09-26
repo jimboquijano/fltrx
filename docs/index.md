@@ -11,7 +11,7 @@ hero:
       link: /get-started/
     - theme: alt
       text: View on GitHub
-      link: https://github.com/jimzqui/fltrx
+      link: https://github.com/jimboquijano/fltrx
 
 features:
   - icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9-9 9-9-9zm9-5.586L5.586 12 12 18.414 18.414 12 12 6.414z"/></svg>

@@ -260,7 +260,7 @@ onMounted(() => {
           <section>
             <ul
               filter="asyncFilter"
-              data-src="/fruits.json"
+              data-src="https://jimboquijano.github.io/fltrx/fruits.json"
               data-template="<li group='{{group}}'><button onclick='alert(&quot;{{name}} clicked!&quot;)'>{{name}}</button></li>"
               groupby="asyncGroup"
               sortby="asyncSort"

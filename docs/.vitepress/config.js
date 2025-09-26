@@ -1,7 +1,7 @@
 export default {
   title: 'Fltrx',
   description: 'The ultimate lightweight JS filtering library',
-  base: '/',
+  base: '/fltrx/',
   appearance: 'dark',
   themeConfig: {
     siteTitle: 'Fltrx',

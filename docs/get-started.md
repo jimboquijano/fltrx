@@ -4,26 +4,30 @@
 
 ## Installation
 
-Include Fltrx in your project:
+Get Fltrx via CDN:
 
 ```html
-<script type="module" src="/src/fltrx.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/fltrx@1.0.0/dist/fltrx.umd.js"></script>
 ```
 
-Or, if using composables:
+Or, get it via NPM:
+
+```code
+npm install fltrx
+```
 
 ```js
-import { initFltrx } from '/src/fltrx.js'
+import { initFltrx } from 'fltrx'
 initFltrx()
 ```
 
-Access the features directly:
+(Optional) Access the features:
 
 ```js
 import { useFilter, useHighlight } from '/src/fltrx.js'
 ```
 
-(Optional) For pagination style, use this [gist](https://gist.github.com/jimboquijano/936c4d063234db4f7699f0177d20e4f4)
+For pagination style, use this [gist](https://gist.github.com/jimboquijano/936c4d063234db4f7699f0177d20e4f4)
 
 ## Key Features
 

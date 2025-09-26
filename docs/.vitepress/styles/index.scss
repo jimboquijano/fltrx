@@ -1,0 +1,211 @@
+.VPNavBar.home .divider {
+  background-color: var(--vp-c-gutter);
+}
+
+.VPFeatures .VPFeature {
+  border: 1px solid var(--vp-c-gray-3);
+}
+
+.home .container,
+.is-home .container {
+  max-width: 1260px !important;
+}
+
+.mega-demo {
+  margin: 0 auto;
+
+  /* Base Colors */
+  --bg: #ffffff;
+  --card: #f9f9f9;
+  --text: #111111;
+  --accent: #3b82f6;
+  --border: #e6e9ef;
+
+  /* Special Colors */
+  --mark-bg: yellow;
+
+  /* Table */
+  --table-border: #ddd;
+
+  /* Pagination */
+  --pagination-link-text: #000000;
+  --pagination-link-bg: #ffffff;
+  --pagination-link-border: #dee2e6;
+  --pagination-link-hover-bg: #e9ecef;
+  --pagination-active-bg: #000000;
+  --pagination-active-text: #ffffff;
+  --pagination-active-border: #000000;
+  --pagination-disabled-text: #6c757d;
+  --pagination-disabled-bg: #ffffff;
+  --pagination-disabled-border: #dee2e6;
+
+  .card {
+    background: var(--card);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  input,
+  select,
+  button {
+    margin: 5px 0;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  table {
+    display: table;
+    margin: 15px 0;
+    width: 100%;
+  }
+
+  th.asc::after {
+    content: ' 🔼';
+  }
+
+  th.desc::after {
+    content: ' 🔽';
+  }
+
+  mark {
+    background: var(--mark-bg);
+  }
+
+  fieldset {
+    border: 1px solid var(--border);
+    padding: 0.85rem;
+    border-radius: 8px;
+    background: var(--card);
+  }
+
+  legend {
+    font-weight: 600;
+    padding: 0 0.4rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .row section ul {
+    margin: 0;
+    padding-left: 25px;
+  }
+
+  .row section .pagination {
+    padding-left: 0;
+  }
+
+  button {
+    border: 1px solid var(--pagination-link-border);
+    background-color: var(--pagination-link-bg);
+    border-radius: 4px;
+  }
+
+  input[type='text'],
+  input[type='password'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'],
+  input[type='date'],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid rgba(59, 130, 246, 0.12);
+    border-color: var(--accent);
+  }
+
+  /* Pagination */
+  .pagination {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    justify-content: center;
+    gap: 4px;
+    margin: 16px 0;
+  }
+
+  .pagination .page-item {
+    display: inline;
+    margin: 0;
+  }
+
+  .pagination .page-link {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+    color: var(--pagination-link-text);
+    border: 1px solid var(--pagination-link-border);
+    border-radius: 4px;
+    background-color: var(--pagination-link-bg);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .pagination .page-link:hover {
+    background-color: var(--pagination-link-hover-bg);
+  }
+
+  .pagination .page-item.active .page-link {
+    background-color: var(--pagination-active-bg);
+    color: var(--pagination-active-text);
+    border-color: var(--pagination-active-border);
+    cursor: default;
+  }
+
+  .pagination .page-item.disabled .page-link {
+    color: var(--pagination-disabled-text);
+    cursor: not-allowed;
+    background-color: var(--pagination-disabled-bg);
+    border-color: var(--pagination-disabled-border);
+  }
+
+  .pagination button {
+    margin: 2px;
+  }
+}
+
+/* -------------------------
+   🌙 DARK MODE VARIABLES
+------------------------- */
+.dark .mega-demo {
+  --bg: #1b1b1f;
+  --card: #1d1e22;
+  --text: #e5e5e5;
+  --accent: #3b82f6;
+  --border: #333333;
+  --mark-bg: #ffea00;
+  --table-border: #333333;
+  --pagination-link-text: #e5e5e5;
+  --pagination-link-bg: #222222;
+  --pagination-link-border: #333333;
+  --pagination-link-hover-bg: #333333;
+  --pagination-active-bg: #3b82f6;
+  --pagination-active-text: #ffffff;
+  --pagination-active-border: #3b82f6;
+  --pagination-disabled-text: #999999;
+  --pagination-disabled-bg: #222222;
+  --pagination-disabled-border: #333333;
+}

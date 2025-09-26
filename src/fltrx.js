@@ -53,6 +53,8 @@ export async function initFtlrx() {
   document.querySelectorAll('[paginate]').forEach((listElement) => usePagination(listElement))
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  initFtlrx()
-})
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', async () => {
+    initFtlrx()
+  })
+}

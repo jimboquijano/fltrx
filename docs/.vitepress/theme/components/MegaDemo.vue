@@ -1,5 +1,5 @@
 <script setup>
-import { initFtlrx } from '../../../../src/fltrx'
+import { initFltrx } from '../../../../src/fltrx'
 import { onMounted, nextTick } from 'vue'
 
 onMounted(() => {

@@ -5,6 +5,7 @@
 
 /**
  * Simple debounce utility to limit how often a function runs.
+ *
  * @param {function} fn - function to call
  * @param {number} delay - milliseconds to wait after last call
  * @returns {function}

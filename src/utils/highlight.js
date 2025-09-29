@@ -8,6 +8,7 @@ import { matchText } from './match.js'
 /**
  * Escape plain text for safe insertion into HTML.
  * Prevents XSS and malformed HTML.
+ *
  * @param {string} str
  * @returns {string}
  */

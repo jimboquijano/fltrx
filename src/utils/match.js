@@ -1,10 +1,11 @@
 /**
- * @file match.js
+ * @file utils/match.js
  * @description Text matching helpers (fuzzy, regex, default)
  */
 
 /**
  * Return indices of fuzzy matches between text and pattern.
+ *
  * @param {string} text
  * @param {string} pattern
  * @returns {number[]}
@@ -26,6 +27,7 @@ export function getFuzzyMatchIndices(text, pattern) {
 
 /**
  * Match text against a query in default, regex, or fuzzy mode.
+ *
  * @param {string} text
  * @param {string} query
  * @param {string} mode

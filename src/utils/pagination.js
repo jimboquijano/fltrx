@@ -1,10 +1,11 @@
 /**
- * @file pagination.js
+ * @file utils/pagination.js
  * @description Pagination helpers
  */
 
 /**
  * Clamp a number between min and max.
+ *
  * @param {number} num
  * @param {number} min
  * @param {number} max
@@ -16,6 +17,7 @@ export function clamp(num, min, max) {
 
 /**
  * Slice items for a given page.
+ *
  * @param {any[]} items
  * @param {number} page
  * @param {number} pageSize
@@ -28,6 +30,7 @@ export function paginateItems(items, page, pageSize) {
 
 /**
  * Compute a sliding window page range.
+ *
  * @param {number} current
  * @param {number} total
  * @param {number} maxVisible
@@ -50,6 +53,7 @@ export function getPageRange(current, total, maxVisible = 5) {
 
 /**
  * Create a semantic pagination item (<li><a>) with click support.
+ *
  * @param {string|number} label
  * @param {number} page
  * @param {{disabled?: boolean, active?: boolean, onClick?: function}} options

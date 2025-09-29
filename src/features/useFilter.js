@@ -1,5 +1,5 @@
 /**
- * @file useFilter.js
+ * @file features/useFilter.js
  * @description Filters the children of listElement using the linked <input>.
  */
 

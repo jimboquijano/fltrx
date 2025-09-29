@@ -1,5 +1,5 @@
 /**
- * @file useHighlight.js
+ * @file features/useHighlight.js
  * @description Highlights the matched letters of the filtered results.
  */
 

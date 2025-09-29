@@ -22,11 +22,12 @@ export { useAsyncData } from './features/useAsyncData.js'
 
 /**
  * Initializes all list features on DOMContentLoaded:
+ *
  * - Loads async data for any element with `data-src`
  * - Attaches filtering and highlighting for elements with `filter` attribute
  * - Sets up grouping, sorting, and pagination where applicable
  */
-export async function initFtlrx() {
+export async function initFltrx() {
   // Load async data first
   const asyncEls = document.querySelectorAll('[data-src]')
   for (const listElement of asyncEls) {
@@ -53,8 +54,9 @@ export async function initFtlrx() {
   document.querySelectorAll('[paginate]').forEach((listElement) => usePagination(listElement))
 }
 
+// Auto-init when DOM is ready
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', async () => {
-    initFtlrx()
+    initFltrx()
   })
 }

@@ -1,5 +1,5 @@
 /**
- * @file useGrouping.js
+ * @file features/useGrouping.js
  * @description  Groups the children of listElement using the linked <select>.
  */
 

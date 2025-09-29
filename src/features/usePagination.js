@@ -1,5 +1,5 @@
 /**
- * @file usePagination.js
+ * @file features/usePagination.js
  * @description Paginates the children of listElement using the linked pagination controls.
  */
 

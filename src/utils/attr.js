@@ -1,10 +1,11 @@
 /**
- * @file attr.js
+ * @file utils/attr.js
  * @description Attribute helpers
  */
 
 /**
  * Get an attribute value with optional fallback.
+ *
  * @param {HTMLElement} el
  * @param {string} name
  * @param {any} fallback
@@ -16,6 +17,7 @@ export function getAttr(el, name, fallback = null) {
 
 /**
  * Resolve an element by an attribute that holds an element ID.
+ *
  * @param {HTMLElement} el
  * @param {string} attrName
  * @returns {HTMLElement|null}

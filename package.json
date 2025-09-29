@@ -1,7 +1,7 @@
 {
   "name": "fltrx",
   "version": "1.0.0",
-  "description": "Attribute-driven JavaScript library to enhance your list and tables.",
+  "description": "Attribute-driven JavaScript library to enhance your HTML forms.",
   "author": "Jimbo Quijano",
   "license": "MIT",
   "type": "module",
@@ -23,8 +23,7 @@
     ".": {
       "import": "./dist/fltrx.es.js",
       "require": "./dist/fltrx.umd.js"
-    },
-    "./dist/fltrx.css": "./dist/fltrx.css"
+    }
   },
   "files": [
     "dist"

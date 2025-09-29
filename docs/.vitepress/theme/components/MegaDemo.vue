@@ -4,7 +4,7 @@ import { onMounted, nextTick } from 'vue'
 
 onMounted(() => {
   nextTick(() => {
-    initFtlrx()
+    initFltrx()
   })
 })
 </script>

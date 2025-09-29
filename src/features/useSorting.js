@@ -1,5 +1,5 @@
 /**
- * @file useSorting.js
+ * @file features/useSorting.js
  * @description Sorts the children of listElement using the linked <select>.
  */
 

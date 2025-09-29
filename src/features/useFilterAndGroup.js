@@ -1,5 +1,5 @@
 /**
- * @file useFilterAndGroup.js
+ * @file features/useFilterAndGroup.js
  * @description Combines filtering by text input and grouping by select element
  * for a listElement. This unifies useFilter.js + useGrouping.js so you always
  * filter inside the currently selected group(s).

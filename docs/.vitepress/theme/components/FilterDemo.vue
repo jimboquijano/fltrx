@@ -26,7 +26,7 @@ onMounted(() => {
         <section>
           <label>DOM/Event Preserve:</label>
           <input type="text" id="highlightFilter" placeholder="Type to filter & highlight" />
-          <ul filter="highlightFilter" filter-highlight="true">
+          <ul filter="highlightFilter">
             <li>Apple <button onclick="alert('Apple')">Click me!</button></li>
             <li>Banana <button onclick="alert('Banana')">Click me!</button></li>
             <li>Cherry <button onclick="alert('Cherry')">Click me!</button></li>
@@ -36,7 +36,7 @@ onMounted(() => {
         <section>
           <label>Filter Fuzzy:</label>
           <input type="text" id="fuzzyFilter" placeholder="e.g., 'apl' matches 'Apple'" />
-          <ul filter="fuzzyFilter" filter-mode="fuzzy" filter-highlight="true">
+          <ul filter="fuzzyFilter" filter-mode="fuzzy">
             <li>Apple</li>
             <li>Banana</li>
             <li>Cherry</li>
@@ -46,7 +46,7 @@ onMounted(() => {
         <section>
           <label>Filter Regex:</label>
           <input type="text" id="regexFilter" placeholder="Regex, e.g., ^A" />
-          <ul filter="regexFilter" filter-mode="regex" filter-highlight="true">
+          <ul filter="regexFilter" filter-mode="regex">
             <li>Apple</li>
             <li>Banana</li>
             <li>Cherry</li>

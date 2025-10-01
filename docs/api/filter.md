@@ -28,16 +28,16 @@ Filtering is activated by adding the `filter` attribute on the list element.
 
 ## Options
 
-| Attribute          | Values                      | Description                               |
-| ------------------ | --------------------------- | ----------------------------------------- |
-| `filter-mode`      | `default`, `regex`, `fuzzy` | Defines the filtering behavior.           |
-| `filter-highlight` | `true`, `false`             | Enables the highlighting of matched text. |
-| `filter-empty`     | `Node`                      | The element to display on empty list.     |
+| Attribute          | Values                      | Description                                |
+| ------------------ | --------------------------- | ------------------------------------------ |
+| `filter-mode`      | `default`, `regex`, `fuzzy` | Defines the filtering behavior.            |
+| `filter-highlight` | `true`, `false`             | Enables the highlighting of matched text.  |
+| `filter-empty`     | `Node`                      | The element to display when list is empty. |
 
 ## Modes
 
 | Name      | Description                                                      |
 | --------- | ---------------------------------------------------------------- |
-| `default` | Matches string based a standard pattern. E.g., `app` → Apple     |
+| `default` | Matches string based on a standard pattern. E.g., `app` → Apple  |
 | `fuzzy`   | Matches string based on approximate matches. E.g., `apl` → Apple |
 | `regex`   | Matches stting based on JS regex patterns. E.g., `^A` → Apple    |

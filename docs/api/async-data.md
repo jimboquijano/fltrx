@@ -24,7 +24,8 @@ Async Data is activated by adding the `data-src` attribute on the list element.
 
 ## Options
 
-| Attribute       | Description                                        |
-| --------------- | -------------------------------------------------- |
-| `data-src`      | The URL source to the fetch the dynamic data from. |
-| `data-template` | The HTML template for rendering each item.         |
+| Attribute       | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `data-src`      | The URL from which to fetch dynamic data.                |
+| `data-template` | The HTML template used to render each fetched item.      |
+| `data-loader`   | The element to show or hide while data is being fetched. |

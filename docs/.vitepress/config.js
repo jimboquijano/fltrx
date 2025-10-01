@@ -3,7 +3,7 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
 export default defineConfig({
   title: 'Fltrx',
-  description: 'The ultimate lightweight JS filtering library',
+  description: 'Attribute-driven JavaScript library to enhance your list and tables.',
   base: '/fltrx/',
   appearance: 'dark',
   head: [['link', { rel: 'icon', type: 'image/x-icon', href: '/fltrx/favicon.ico' }]],

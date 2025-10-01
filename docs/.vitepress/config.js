@@ -6,6 +6,7 @@ export default defineConfig({
   description: 'The ultimate lightweight JS filtering library',
   base: '/fltrx/',
   appearance: 'dark',
+  head: [['link', { rel: 'icon', type: 'image/x-icon', href: '/fltrx/favicon.ico' }]],
   themeConfig: {
     siteTitle: 'Fltrx',
     logo: {

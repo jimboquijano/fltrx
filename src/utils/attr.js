@@ -1,10 +1,10 @@
 /**
  * @file utils/attr.js
- * @description Attribute helpers
+ * @description Low-level attribute utilities for Fltrx.
  */
 
 /**
- * Get an attribute value with optional fallback.
+ * Retrieves an attribute value with optional fallback.
  *
  * @param {HTMLElement} el
  * @param {string} name
@@ -16,7 +16,7 @@ export function getAttr(el, name, fallback = null) {
 }
 
 /**
- * Resolve an element by an attribute that holds an element ID.
+ * Resolves an element by an attribute that holds an element ID.
  *
  * @param {HTMLElement} el
  * @param {string} attrName

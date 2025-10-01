@@ -1,6 +1,6 @@
 {
   "name": "fltrx",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Attribute-driven JavaScript library to enhance your HTML forms.",
   "author": "Jimbo Quijano",
   "license": "MIT",
@@ -37,8 +37,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "format": "prettier --write ."
   },
   "devDependencies": {
@@ -51,8 +51,9 @@
     "prettier": "^3.6.2",
     "terser": "^5.31.1",
     "vite": "^7.1.7",
-    "vitest": "^3.2.4",
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-tabs": "^0.7.3",
+    "vitest": "^3.2.4"
   },
   "repository": {
     "type": "git",

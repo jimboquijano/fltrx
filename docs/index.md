@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: Fltrx
+  name: 'Fltrx'
   tagline: Attribute-driven JavaScript library to enhance your list and tables. With filtering, highlighting, sorting, grouping, pagination and async data binding.
   actions:
     - theme: brand
       text: Get Started
-      link: /get-started/
+      link: /getting-started/
     - theme: alt
       text: View on GitHub
       link: https://github.com/jimboquijano/fltrx

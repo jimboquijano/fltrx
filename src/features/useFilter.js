@@ -1,49 +1,34 @@
 /**
  * @file features/useFilter.js
- * @description Filters the children of listElement using the linked <input>.
+ * @description Filters the children of list element using a linked <input>.
  */
 
-import { getElementByAttr, getAttr } from '../utils/attr.js'
-import { debounce } from '../utils/timing.js'
-import { replaceChildren } from '../utils/dom.js'
-import { matchText } from '../utils/match.js'
-
-/**
- * Returns the filtered children of a list based on a query and mode.
- *
- * @param {HTMLElement[]} children - Original children to filter.
- * @param {string} query - Input query string.
- * @param {string} mode - Matching mode (passed to matchText).
- * @returns {HTMLElement[]} Filtered list of elements that match the query.
- */
-function filterChildren(children, query, mode) {
-  return children.filter((child) => {
-    const { match } = matchText(child.textContent, query, mode)
-    return match
-  })
-}
+import { startFunnel } from '../core/funnel'
+import { showHighlight } from '../core/highlight'
+import { getElementByAttr } from '../utils/attr'
+import { replaceChildren } from '../utils/dom'
+import { debounce } from '../utils/misc'
 
 /**
  * Sets up a live filter for a list element using an associated input element.
- * The input element is identified by the `filter` attribute on the listElement.
+ * The input element is identified by the `filter` attribute on the listEl.
  *
- * @param {HTMLElement} listElement - The container element whose children will be filtered.
+ * @param {HTMLElement} listEl
  */
-export function useFilter(listElement) {
-  const inputEl = getElementByAttr(listElement, 'filter')
-  if (!inputEl) return // Exit early if no linked input is found
+export function useFilter(listEl) {
+  const inputEl = getElementByAttr(listEl, 'filter')
+  if (!inputEl) return
 
-  // Preserve original children to maintain content and attached events
-  const originalChildren = Array.from(listElement.children)
-  const mode = getAttr(listElement, 'filter-mode', 'default')
+  toggleEmptyState(listEl, 1)
 
   /**
    * Filters original children and updates the list element.
    */
   function filterItems() {
-    const query = inputEl.value
-    const matched = filterChildren(originalChildren, query, mode)
-    replaceChildren(listElement, matched)
+    const children = startFunnel(listEl)
+    replaceChildren(listEl, children)
+    showHighlight(listEl, children)
+    toggleEmptyState(listEl, children.length)
   }
 
   // Listen to input changes and apply filtering
@@ -51,5 +36,27 @@ export function useFilter(listElement) {
   inputEl.addEventListener('input', debouncedFilter)
 
   // Apply initial filter in case input has pre-filled value
-  filterItems()
+  if (inputEl.value) {
+    filterItems()
+  }
+}
+
+/**
+ * Show or hide a "no results" element linked via `filter-empty`.
+ *
+ * @param {HTMLElement} listEl
+ * @param {number} matchCount
+ */
+export function toggleEmptyState(listEl, matchCount) {
+  const emptyId = listEl.getAttribute('filter-empty')
+  if (!emptyId) return
+
+  const emptyEl = document.getElementById(emptyId)
+  if (!emptyEl) return
+
+  if (matchCount === 0) {
+    emptyEl.style.display = ''
+  } else {
+    emptyEl.style.display = 'none'
+  }
 }

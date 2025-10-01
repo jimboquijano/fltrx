@@ -1,41 +1,25 @@
 /**
  * @file features/useAsyncData.js
- * @description Loads the JSON data asynchronously and renders into the listElement.
+ * @description Loads a JSON data asynchronously and renders into a list element.
  */
 
-import { getAttr } from '../utils/attr.js'
-import { replaceChildren } from '../utils/dom.js'
+import { getAttr } from '../utils/attr'
+import { replaceChildren, renderItem } from '../utils/dom'
 
 /**
- * Renders a single data item into a DOM element using the provided template.
- *
- * @param {Object} item - The data object to render.
- * @param {string} template - HTML template string with {{key}} placeholders.
- * @returns {HTMLElement} The rendered DOM element.
- */
-function renderItem(item, template) {
-  // Replace {{key}} placeholders with actual data values
-  const html = template.replace(/\{\{(\w+)\}\}/g, (_, key) => item[key] ?? '')
-
-  // Convert HTML string into a DOM element
-  const temp = document.createElement('div')
-  temp.innerHTML = html
-
-  return temp.firstElementChild
-}
-
-/**
- * Loads JSON data from a `data-src` URL and renders it into the given `listElement`.
+ * Loads JSON data from a `data-src` URL and renders it into the given list element.
  * Uses a simple template replacement for each item.
  *
- * @param {HTMLElement} listElement - The target element to render list items into.
+ * @param {HTMLElement} listEl
  */
-export async function useAsyncData(listElement) {
-  const src = getAttr(listElement, 'data-src')
-  if (!src) return // Exit early if no data source is provided
+export async function useAsyncData(listEl) {
+  const src = getAttr(listEl, 'data-src')
+  if (!src) return
+
+  toggleLoader(listEl, true)
 
   try {
-    const template = getAttr(listElement, 'data-template', '<li>{{name}}</li>')
+    const template = getAttr(listEl, 'data-template', '<li>{{name}}</li>')
 
     // Fetch JSON data from the source
     const res = await fetch(src)
@@ -44,9 +28,26 @@ export async function useAsyncData(listElement) {
     // Render each data item into a DOM element
     const rendered = data.map((item) => renderItem(item, template))
 
-    // Replace existing children with rendered elements
-    replaceChildren(listElement, rendered)
+    replaceChildren(listEl, rendered)
   } catch (error) {
     console.error('Fltrx async fetch error:', error)
+  } finally {
+    toggleLoader(listEl, false)
   }
+}
+
+/**
+ * Show or hide the loader element linked via `data-loader`.
+ *
+ * @param {HTMLElement} listEl - The list element with the `data-loader` attribute.
+ * @param {boolean} show - Whether to show or hide the loader.
+ */
+function toggleLoader(listEl, show) {
+  const loaderId = getAttr(listEl, 'data-loader')
+  if (!loaderId) return
+
+  const loaderEl = document.getElementById(loaderId)
+  if (!loaderEl) return
+
+  loaderEl.style.display = show ? '' : 'none'
 }

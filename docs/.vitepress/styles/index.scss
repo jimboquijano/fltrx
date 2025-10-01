@@ -11,23 +11,26 @@
   max-width: 1260px !important;
 }
 
-.mega-demo {
-  margin: 0 auto;
+.vp-doc table {
+  display: table;
+  width: 100%;
+}
 
-  /* Base Colors */
+details > *:last-child {
+  border-bottom: 1px dashed var(--vp-c-divider);
+  padding-bottom: 20px;
+}
+
+.mega-demo {
+  margin: 20px auto 0;
+
   --bg: #ffffff;
   --card: #f9f9f9;
   --text: #111111;
   --accent: #3b82f6;
   --border: #e6e9ef;
-
-  /* Special Colors */
   --mark-bg: yellow;
-
-  /* Table */
   --table-border: #ddd;
-
-  /* Pagination */
   --pagination-link-text: #000000;
   --pagination-link-bg: #ffffff;
   --pagination-link-border: #dee2e6;
@@ -53,6 +56,12 @@
     margin: 5px 0;
     padding: 5px 10px;
     font-size: 14px;
+  }
+
+  select {
+    appearance: auto;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
   }
 
   table {

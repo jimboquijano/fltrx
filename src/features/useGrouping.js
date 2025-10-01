@@ -1,20 +1,55 @@
 /**
  * @file features/useGrouping.js
- * @description  Groups the children of listElement using the linked <select>.
+ * @description  Groups the children of list element using a linked <select>.
  */
 
-import { getElementByAttr } from '../utils/attr.js'
+import { startFunnel } from '../core/funnel'
+import { getElementByAttr } from '../utils/attr'
+import { replaceChildren } from '../utils/dom'
+import { toggleEmptyState } from './useFilter'
+
+/**
+ * Sets up grouping for a list element based on a <select> element.
+ * The select element is identified via the `groupby` attribute on the list element.
+ *
+ * @param {HTMLElement} listEl
+ */
+export function useGrouping(listEl) {
+  const selectEl = getElementByAttr(listEl, 'groupby')
+  if (!selectEl) return
+
+  const origChildren = Array.from(listEl.children)
+  const groups = getGroupNames(origChildren)
+
+  // Populate the select element with options
+  selectEl.innerHTML = createGroupOptions(groups)
+
+  /**
+   * Display the selected groups on select change.
+   */
+  function groupItems() {
+    const children = startFunnel(listEl)
+    replaceChildren(listEl, children)
+    toggleEmptyState(listEl, children.length)
+  }
+
+  selectEl.addEventListener('change', groupItems)
+
+  // Apply initial grouping
+  if (selectEl.value != 'All') {
+    groupItems()
+  }
+}
 
 /**
  * Generates HTML options for a select element based on groups.
  *
- * @param {string[]} groups - Array of unique group names.
- * @param {boolean} multiple - Whether the select allows multiple selection.
- * @returns {string} HTML string for select options.
+ * @param {string[]} groups
+ * @returns {string}
  */
-function createGroupOptions(groups, multiple) {
+function createGroupOptions(groups) {
   const options = [
-    '<option value="All">All</option>',
+    '<option value="All" selected>All</option>',
     ...groups.map((g) => `<option value="${g}">${g}</option>`)
   ]
 
@@ -22,53 +57,14 @@ function createGroupOptions(groups, multiple) {
 }
 
 /**
- * Shows/hides children based on selected groups.
+ * Returns the group names of a children elements.
  *
- * @param {HTMLElement[]} children - List of elements to filter.
- * @param {string[]} selectedGroups - Selected group values.
+ * @param {HTMLElement[]} children
+ * @returns {string[]}
  */
-function filterChildrenByGroup(children, selectedGroups) {
-  children.forEach((child) => {
-    const group = child.getAttribute('group') ?? ''
+function getGroupNames(children) {
+  let groupNames = []
+  groupNames = Array.from(new Set(children.map((c) => c.getAttribute('group') ?? '')))
 
-    child.style.display =
-      selectedGroups.includes('All') || selectedGroups.includes(group) ? '' : 'none'
-  })
-}
-
-/**
- * Sets up grouping for a list element based on a <select> element.
- * The select element is identified via the `groupby` attribute on the listElement.
- *
- * @param {HTMLElement} listElement - The container element whose children will be grouped.
- */
-export function useGrouping(listElement) {
-  const selectEl = getElementByAttr(listElement, 'groupby')
-  if (!selectEl) return // Exit early if no linked select is found
-
-  const children = Array.from(listElement.children)
-  const groups = Array.from(new Set(children.map((c) => c.getAttribute('group') ?? '')))
-
-  // Populate the select element with options
-  selectEl.innerHTML = createGroupOptions(groups, selectEl.multiple)
-
-  // If multiple selection, default "All" to selected
-  if (selectEl.multiple) {
-    Array.from(selectEl.options).forEach((opt) => {
-      if (opt.value === 'All') opt.selected = true
-    })
-  }
-
-  /**
-   * Handles select change and updates displayed children
-   */
-  function onChange() {
-    const selected = Array.from(selectEl.selectedOptions).map((o) => o.value)
-    filterChildrenByGroup(children, selected)
-  }
-
-  selectEl.addEventListener('change', onChange)
-
-  // Apply initial grouping
-  onChange()
+  return groupNames
 }

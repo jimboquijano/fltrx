@@ -5,6 +5,6 @@
   { "name": "Carrot", "group": "Vegetable" },
   { "name": "Broccoli", "group": "Vegetable" },
   { "name": "Spinach", "group": "Vegetable" },
-  { "name": "Date", "group": "Fruit" },
+  { "name": "Orange", "group": "Fruit" },
   { "name": "Fig", "group": "Fruit" }
 ]

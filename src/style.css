@@ -7,6 +7,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #3c3c43;
+  background: #1b1b1f;
   font-synthesis: style;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +25,7 @@ h1.heading {
   font-weight: 700;
   font-size: 56px;
   line-height: 64px;
-  color: #3451b2;
+  color: #a8b1ff;
   margin: 0;
 }
 
@@ -33,7 +34,7 @@ p.tagline {
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  color: #67676c;
+  color: #98989f;
   max-width: 576px;
   margin: 15px 0 30px;
 }
@@ -63,19 +64,19 @@ p.tagline {
     color 0.25s,
     border-color 0.25s,
     background-color 0.25s;
-  color: #3c3c43;
-  background: #ebebef;
+  color: #d6d6d6;
+  background: #32363f;
 }
 
 .button:hover {
-  background: #e4e4e9;
+  background: #414853;
 }
 
 .button.brand {
   color: #fff;
-  background: #5672cd;
+  background: #3e63dd;
 }
 
 .button.brand:hover {
-  background: #3a5ccc;
+  background: #5c73e7;
 }

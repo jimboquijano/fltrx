@@ -1,24 +1,99 @@
 /**
- * @file utils/highlight.js
- * @description Low-level highlighting utilities for Fltrx.
+ * @file core/highlight.js
+ * @description Core functionality to highlight the matched results.
  */
 
-import { matchText } from './match.js'
+import { getElementByAttr, getAttr } from '../utils/attr'
+import { applyReplacements } from '../utils/dom'
+import { escapeHtml } from '../utils/misc'
+import { matchText } from './funnel'
+
+let lastQuery = ''
+let lastMode = ''
+let lastFullText = ''
+let lastMask = null
 
 /**
- * Escape plain text for safe insertion into HTML.
- * Prevents XSS and malformed HTML.
+ * Enables highlighting of matching text inside list children.
+ * Controlled via the `filter-highlight` attribute.
  *
- * @param {string} str
- * @returns {string}
+ * @param {HTMLElement} listEl
  */
-export function escapeHtml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
+export function showHighlight(listEl, children) {
+  const highlightEnabled = getAttr(listEl, 'filter-highlight') === 'true'
+  if (!highlightEnabled) return
+
+  // Find the input element associated with this list
+  const inputEl = getElementByAttr(listEl, 'filter')
+  if (!inputEl) return
+
+  const query = inputEl.value
+  const mode = getAttr(listEl, 'filter-mode', 'default')
+
+  Array.from(children).forEach((child) => {
+    removeExistingMarks(child)
+    if (!query) return
+
+    const fullText = child.textContent || ''
+    const mask = computeHighlightMask(fullText, query, mode)
+
+    // If no bits set, nothing to do
+    const hasMatch = Array.prototype.some.call(mask, (v) => !!v)
+    if (!hasMatch) return
+
+    // Build replacements for text nodes, then apply them
+    const replacements = buildTextNodeReplacements(child, mask)
+    if (replacements.length > 0) applyReplacements(replacements)
+  })
+}
+
+/**
+ * Compute a boolean array of length = fullText.length where true means character should be highlighted.
+ * This orchestrates fuzzy vs regex vs default modes with caching.
+ *
+ * @param {string} fullText
+ * @param {string} query
+ * @param {string} mode
+ * @returns {Uint8Array} array of 0/1 flags
+ */
+export function computeHighlightMask(fullText = '', query, mode) {
+  // If same inputs as last time, return cached mask
+  if (fullText === lastFullText && query === lastQuery && mode === lastMode && lastMask) {
+    return lastMask
+  }
+
+  // Otherwise compute fresh mask
+  let mask
+
+  if (!query) {
+    mask = new Uint8Array(fullText.length)
+  } else if (mode === 'fuzzy') {
+    mask = computeFuzzyMask(fullText, query)
+  } else {
+    mask = computeRegexMask(fullText, query, mode)
+  }
+
+  // Store cache
+  lastFullText = fullText
+  lastQuery = query
+  lastMode = mode
+  lastMask = mask
+
+  return mask
+}
+
+/**
+ * Unwrap existing <mark> elements inside a container to plain text nodes.
+ * This prevents nested marks when re-highlighting multiple times.
+ *
+ * @param {HTMLElement} container
+ */
+export function removeExistingMarks(container) {
+  const existingMarks = container.querySelectorAll('mark')
+
+  existingMarks.forEach((m) => {
+    m.replaceWith(document.createTextNode(m.textContent))
+  })
 }
 
 /**
@@ -66,6 +141,7 @@ function computeRegexMask(fullText, query, mode) {
     }
   } catch (e) {
     // invalid regex — return empty mask
+    console.error(e)
     return mask
   }
 
@@ -84,60 +160,6 @@ function computeRegexMask(fullText, query, mode) {
   }
 
   return mask
-}
-
-let lastQuery = ''
-let lastMode = ''
-let lastFullText = ''
-let lastMask = null
-
-/**
- * Compute a boolean array of length = fullText.length where true means character should be highlighted.
- * This orchestrates fuzzy vs regex vs default modes with caching.
- *
- * @param {string} fullText
- * @param {string} query
- * @param {string} mode
- * @returns {Uint8Array} array of 0/1 flags
- */
-export function computeHighlightMask(fullText, query, mode) {
-  // If same inputs as last time, return cached mask
-  if (fullText === lastFullText && query === lastQuery && mode === lastMode && lastMask) {
-    return lastMask
-  }
-
-  // Otherwise compute fresh mask
-  let mask
-
-  if (!query) {
-    mask = new Uint8Array(fullText.length)
-  } else if (mode === 'fuzzy') {
-    mask = computeFuzzyMask(fullText, query)
-  } else {
-    mask = computeRegexMask(fullText, query, mode)
-  }
-
-  // Store cache
-  lastFullText = fullText
-  lastQuery = query
-  lastMode = mode
-  lastMask = mask
-
-  return mask
-}
-
-/**
- * Unwrap existing <mark> elements inside a container to plain text nodes.
- * This prevents nested marks when re-highlighting multiple times.
- *
- * @param {HTMLElement} container
- */
-export function removeExistingMarks(container) {
-  const existingMarks = container.querySelectorAll('mark')
-
-  existingMarks.forEach((m) => {
-    m.replaceWith(document.createTextNode(m.textContent))
-  })
 }
 
 /**
@@ -207,20 +229,4 @@ export function buildTextNodeReplacements(container, mask) {
   }
 
   return nodesToReplace
-}
-
-/**
- * Apply replacements for text nodes (replace each text node with the HTML fragment).
- *
- * @param {Array<{node: Text, html: string}>} replacements
- */
-export function applyReplacements(replacements) {
-  for (const { node, html } of replacements) {
-    const wrapper = document.createElement('span')
-    wrapper.innerHTML = html
-
-    const frag = document.createDocumentFragment()
-    while (wrapper.firstChild) frag.appendChild(wrapper.firstChild)
-    node.parentNode.replaceChild(frag, node)
-  }
 }

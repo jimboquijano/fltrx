@@ -1,7 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
-import BrandLogo from './components/BrandLogo.vue'
 import FeatureBox from './components/FeatureBox.vue'
 import FilterDemo from './components/FilterDemo.vue'
 import HighlightDemo from './components/HighlightDemo.vue'
@@ -16,7 +15,6 @@ export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
     // register your own components
-    app.component('BrandLogo', BrandLogo)
     app.component('FeatureBox', FeatureBox)
     app.component('FilterDemo', FilterDemo)
     app.component('HighlightDemo', HighlightDemo)

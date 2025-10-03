@@ -27,7 +27,7 @@ import { initFltrx } from 'fltrx'
 initFltrx()
 ```
 
-(Optional) Initialize only ceratin features in your project:
+(Optional) Initialize only certain features in your project:
 
 ```js
 import { useFilter, usGrouping } from 'fltrx'

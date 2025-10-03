@@ -1,8 +1,3 @@
----
-title: Changelog
-sidebar: auto
----
-
 # Changelog
 
 All notable changes made to **Fltrx** are recorded in this document. Each update is tracked with version numbers, dates, and a summary of modifications. This project follows the principles of [Semantic Versioning](https://semver.org/) to ensure consistent and predictable version updates.
@@ -11,7 +6,8 @@ All notable changes made to **Fltrx** are recorded in this document. Each update
 
 ### Added
 
-- Planned auto initialization for all features when a list is updated dynamically.
+- Planned auto-initialization for all features when a list is updated dynamically.
+- Planned Vue 3 and React components.
 
 ### Changed
 
@@ -20,22 +16,37 @@ All notable changes made to **Fltrx** are recorded in this document. Each update
 ### Fixed
 
 - N/A
+
+## [1.1.2] - 2025-10-03
+
+### Added
+
+- N/A
+
+### Changed
+
+- **Async Data** now displays an error message when a fetch fails.
+
+### Fixed
+
+- **Highlight** now correctly triggers on all list elements when **Filtering** and **Grouping** are combined.
+- The `filter-empty` element is now properly hidden while remote data is being fetched in **Async Data**.
 
 ## [1.1.0] - 2025-10-01
 
 ### Added
 
-- **Sorting** now has the ability to auto sort table columns on load.
-- **Sorting** now has more supported modes of sorting.
+- **Sorting** can now automatically sort table columns on load.
+- **Sorting** supports additional sorting modes.
 
 ### Changed
 
-- **Grouping** now renders a new list instead of hinding some items.
-- **Major** improvements and refactors for future clarity and readability.
+- **Grouping** now renders a new list instead of hiding items.
+- Major improvements and refactors for better clarity and maintainability.
 
 ### Fixed
 
-- Fixed an issue where **Sorting** did not work correctly and as intended, when used alongside **Filter** and **Grouping**.
+- **Sorting** now works correctly when used alongside **Filtering** and **Grouping**.
 
 ## [1.0.0] - 2025-09-26
 

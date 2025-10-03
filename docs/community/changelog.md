@@ -34,8 +34,8 @@ All notable changes made to **Fltrx** are recorded in this document. Each update
 
 ### Fixed
 
-- **Highlight** now correctly triggers on all list elements when **Filtering** and **Grouping** are combined.
-- The `filter-empty` element is now properly hidden while remote data is being fetched in **Async Data**.
+- **Highlight** now triggers on all list elements when **Filtering** and **Grouping** are combined.
+- The `filter-empty` element is now hidden while data is being fetched in **Async Data**.
 
 ## [1.1.0] - 2025-10-01
 

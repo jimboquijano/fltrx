@@ -4,7 +4,6 @@
  */
 
 import { startFunnel } from '../core/funnel'
-import { showHighlight } from '../core/highlight'
 import { getElementByAttr } from '../utils/attr'
 import { replaceChildren } from '../utils/dom'
 import { debounce } from '../utils/misc'
@@ -27,7 +26,6 @@ export function useFilter(listEl) {
   function filterItems() {
     const children = startFunnel(listEl)
     replaceChildren(listEl, children)
-    showHighlight(listEl, children)
     toggleEmptyState(listEl, children.length)
   }
 

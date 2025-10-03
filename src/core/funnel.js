@@ -5,6 +5,7 @@
 
 import { getElementByAttr, getAttr } from '../utils/attr'
 import { getChildrenCache } from '../utils/misc'
+import { showHighlight } from './highlight'
 
 /**
  * Starts running each trimmer for grouping, sorting and filtering.
@@ -44,6 +45,7 @@ export function startFunnel(listEl, th) {
     const inputEl = getElementByAttr(listEl, 'filter')
     const mode = getAttr(listEl, 'filter-mode', 'default')
     children = startFilter(children, inputEl.value, mode)
+    showHighlight(listEl, children)
   }
 
   return children

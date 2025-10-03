@@ -3,7 +3,7 @@
  * @description Main entry for initializing and exporting all features.
  */
 
-import { useFilter } from './features/useFilter'
+import { toggleEmptyState, useFilter } from './features/useFilter'
 import { useGrouping } from './features/useGrouping'
 import { useSorting } from './features/useSorting'
 import { usePagination } from './features/usePagination'
@@ -32,6 +32,8 @@ export async function initFltrx(refresh = true) {
       if (refresh) {
         refreshChildrenCache(listEl)
       }
+
+      toggleEmptyState(listEl, 1)
 
       // Load async data first
       if (listEl.hasAttribute('data-src')) {

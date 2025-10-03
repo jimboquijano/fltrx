@@ -17,9 +17,10 @@ export async function useAsyncData(listEl) {
   if (!src) return
 
   toggleLoader(listEl, true)
+  const defaultTpl = '<li>{{name}}</li>'
 
   try {
-    const template = getAttr(listEl, 'data-template', '<li>{{name}}</li>')
+    const template = getAttr(listEl, 'data-template', defaultTpl)
 
     // Fetch JSON data from the source
     const res = await fetch(src)
@@ -27,10 +28,13 @@ export async function useAsyncData(listEl) {
 
     // Render each data item into a DOM element
     const rendered = data.map((item) => renderItem(item, template))
-
     replaceChildren(listEl, rendered)
-  } catch (error) {
-    console.error('Fltrx async fetch error:', error)
+  } catch (e) {
+    const error = 'Fltrx async fetch error'
+    const message = renderItem({ name: `${error}.` }, defaultTpl)
+    replaceChildren(listEl, [message])
+
+    console.error(`${error}:`, e)
   } finally {
     toggleLoader(listEl, false)
   }

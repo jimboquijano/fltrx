@@ -1,12 +1,5 @@
 # Sample Usage
 
-## Why use Fltrx?
-
-- **Easy to use:** minimal attributes, no complex JS setup required
-- **Event-safe:** click events and interactions remain intact after filtering or pagination
-- **Flexible:** works on lists and tables, supports advanced search patterns
-- **Composable-ready:** fully modular for use with Vite or modern JS frameworks
-
 ## Filter
 
 Add the `filter` attribute to link an input to a list/table:

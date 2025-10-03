@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: 'Fltrx'
-  tagline: Attribute-driven JavaScript library to enhance your list and tables. With filtering, highlighting, sorting, grouping, pagination and async data binding.
+  tagline: Attribute-driven JavaScript library to enhance your list and tables, with filtering, highlighting, sorting, grouping, pagination and async data binding.
   actions:
     - theme: brand
       text: Get Started

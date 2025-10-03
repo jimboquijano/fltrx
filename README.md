@@ -1,6 +1,6 @@
 # Fltrx
 
-Fltrx is an attribute-driven JavaScript library to enhance your list and tables. With filtering, highlighting, sorting, grouping, pagination and async data binding.
+Fltrx is an attribute-driven JavaScript library to enhance your list and tables, with filtering, highlighting, sorting, grouping, pagination and async data binding.
 
 Learn more about [Fltrx](https://jimboquijano.github.io/fltrx/).
 

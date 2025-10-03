@@ -31,9 +31,9 @@ Each `group` attribute on the list item will be aggregated in the linked `<selec
 
 `useGrouping(listEl)`
 
-| Parameter | Type                     | Description                                      |
-| --------- | ------------------------ | ------------------------------------------------ |
-| `listEl`  | `UL`, `OL`, `TABLE body` | The list element whose children will be grouped. |
+| Parameter | Type          | Description                                      |
+| --------- | ------------- | ------------------------------------------------ |
+| `listEl`  | `HTMLElement` | The list element whose children will be grouped. |
 
 ## Item
 

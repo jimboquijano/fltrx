@@ -18,9 +18,9 @@ Async Data is activated by adding the `data-src` attribute on the list element.
 
 `useAsyncData(listEl)`
 
-| Parameter | Type                     | Description                                 |
-| --------- | ------------------------ | ------------------------------------------- |
-| `listEl`  | `UL`, `OL`, `TABLE body` | The list element to render list items into. |
+| Parameter | Type          | Description                                 |
+| --------- | ------------- | ------------------------------------------- |
+| `listEl`  | `HTMLElement` | The list element to render list items into. |
 
 ## Options
 

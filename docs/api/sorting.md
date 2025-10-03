@@ -55,9 +55,9 @@ Sorting is activated by adding the `sortby` attribute on the list element.
 
 `useFilter(listEl)`
 
-| Parameter | Type                     | Description                                          |
-| --------- | ------------------------ | ---------------------------------------------------- |
-| `listEl`  | `UL`, `OL`, `TABLE body` | The container element whose children will be sorted. |
+| Parameter | Type          | Description                                          |
+| --------- | ------------- | ---------------------------------------------------- |
+| `listEl`  | `HTMLElement` | The container element whose children will be sorted. |
 
 ## Modes
 

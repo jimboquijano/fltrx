@@ -22,6 +22,6 @@ Highlighting is activated by adding the `filter-highlight` attribute on the list
 
 `useHighlight(listEl)`
 
-| Parameter | Type                     | Description                                          |
-| --------- | ------------------------ | ---------------------------------------------------- |
-| `listEl`  | `UL`, `OL`, `TABLE body` | The list element whose children will be highlighted. |
+| Parameter | Type          | Description                                          |
+| --------- | ------------- | ---------------------------------------------------- |
+| `listEl`  | `HTMLElement` | The list element whose children will be highlighted. |

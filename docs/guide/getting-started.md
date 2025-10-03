@@ -1,6 +1,6 @@
 # Getting Started
 
-Fltrx is an **Attribute-driven** JavaScript library to enhance your list and tables, with filtering, highlighting, sorting, grouping, pagination and async data binding.
+Fltrx is an **attribute-driven** JavaScript library to enhance your list and tables, with filtering, highlighting, sorting, grouping, pagination and async data binding.
 
 ## Installation
 
@@ -20,17 +20,19 @@ npm install fltrx
 
 For CDN, Fltrx initializes automatically on load. For NPM, do the following:
 
-```bash
+```js
 import { initFltrx } from 'fltrx'
+
+// DOM is loaded
 initFltrx()
 ```
 
-(Optional) Access other features:
+(Optional) Initialize only ceratin features in your project:
 
 ```js
-import { useFilter, useHighlight } from 'fltrx'
+import { useFilter, usGrouping } from 'fltrx'
+
+// DOM is loaded
+useFilter(listEl)
+usGrouping(listEl)
 ```
-
-## Note
-
-> For pagination style, use this [gist](https://gist.github.com/jimboquijano/936c4d063234db4f7699f0177d20e4f4)

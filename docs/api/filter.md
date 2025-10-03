@@ -22,9 +22,9 @@ Filtering is activated by adding the `filter` attribute on the list element.
 
 `useFilter(listEl)`
 
-| Parameter | Type                     | Description                                       |
-| --------- | ------------------------ | ------------------------------------------------- |
-| `listEl`  | `UL`, `OL`, `TABLE body` | The list element whose children will be filtered. |
+| Parameter | Type          | Description                                       |
+| --------- | ------------- | ------------------------------------------------- |
+| `listEl`  | `HTMLElement` | The list element whose children will be filtered. |
 
 ## Options
 
@@ -32,7 +32,7 @@ Filtering is activated by adding the `filter` attribute on the list element.
 | ------------------ | --------------------------- | ------------------------------------------ |
 | `filter-mode`      | `default`, `regex`, `fuzzy` | Defines the filtering behavior.            |
 | `filter-highlight` | `true`, `false`             | Enables the highlighting of matched text.  |
-| `filter-empty`     | `Node`                      | The element to display when list is empty. |
+| `filter-empty`     | `HTMLElement`               | The element to display when list is empty. |
 
 ## Modes
 

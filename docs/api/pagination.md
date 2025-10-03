@@ -22,9 +22,9 @@ Pagination is activated by adding the `paginate` attribute on the list element.
 
 `usePagination(listEl)`
 
-| Parameter | Type                     | Description                                       |
-| --------- | ------------------------ | ------------------------------------------------- |
-| `listEl`  | `UL`, `OL`, `TABLE body` | The list element whose children will be filtered. |
+| Parameter | Type          | Description                                       |
+| --------- | ------------- | ------------------------------------------------- |
+| `listEl`  | `HTMLElement` | The list element whose children will be filtered. |
 
 ## Options
 
@@ -32,3 +32,7 @@ Pagination is activated by adding the `paginate` attribute on the list element.
 | -------------- | ------- | ------------------------------------ |
 | `page-size`    | 5       | Defines the total number of pages.   |
 | `page-current` | 1       | Defines the current page to display. |
+
+## Note
+
+> For pagination style, use this [gist](https://gist.github.com/jimboquijano/936c4d063234db4f7699f0177d20e4f4)

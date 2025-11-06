@@ -35,7 +35,6 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'Filter', link: '/api/filter' },
-            { text: 'Highlight', link: '/api/highlight' },
             { text: 'Grouping', link: '/api/grouping' },
             { text: 'Sorting', link: '/api/sorting' },
             { text: 'Pagination', link: '/api/pagination' },

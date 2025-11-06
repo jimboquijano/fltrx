@@ -2,8 +2,11 @@
 layout: home
 
 hero:
-  name: '<span class="logo-brand"><img class="logo-dark" src="/fltrx/logo-dark.png" /><img class="logo-light" src="/fltrx/logo-light.png" /></span> Fltrx'
+  name: 'Fltrx'
   tagline: Attribute-driven JavaScript library to enhance your list and tables, with filtering, highlighting, sorting, grouping, pagination and async data binding.
+  image:
+    src: /logo.png
+    alt: Suriform
   actions:
     - theme: brand
       text: Get Started

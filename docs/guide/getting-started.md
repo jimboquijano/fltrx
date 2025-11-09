@@ -23,7 +23,7 @@ For CDN, Fltrx initializes automatically on load. For NPM, do the following:
 ```js
 import { initFltrx } from 'fltrx'
 
-// DOM is loaded
+// After DOM is loaded
 initFltrx()
 ```
 
@@ -32,7 +32,7 @@ initFltrx()
 ```js
 import { useFilter, usGrouping } from 'fltrx'
 
-// DOM is loaded
+// After DOM is loaded
 useFilter(listEl)
 usGrouping(listEl)
 ```

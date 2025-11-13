@@ -1,6 +1,6 @@
 {
   "name": "fltrx",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Attribute-driven JavaScript library to enhance your list and tables.",
   "author": "Jimbo Quijano",
   "license": "MIT",
@@ -62,5 +62,5 @@
   "bugs": {
     "url": "https://github.com/jimboquijano/fltrx/issues"
   },
-  "homepage": "https://github.com/jimboquijano/fltrx#readme"
+  "homepage": "https://jimboquijano.github.io/fltrx"
 }
